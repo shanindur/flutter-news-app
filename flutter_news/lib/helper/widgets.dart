@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/screens/article_view.dart';
 
 Widget appBar(){
   return AppBar(
@@ -7,11 +8,11 @@ Widget appBar(){
       children: [
         Text(
           "Sky ",
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.black87, fontSize: 25.0, fontWeight: FontWeight.w600),
         ),
         Text(
           "News",
-          style: TextStyle(color: Colors.purple, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.purple, fontSize: 25.0, fontWeight: FontWeight.w600),
         )
       ],
     ),
@@ -30,6 +31,9 @@ class NewsTile extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
+          builder: (context) => ArticleView(
+            postUrl: postUrl,
+          )
 
         ));
       },

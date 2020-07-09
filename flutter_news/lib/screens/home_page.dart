@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_news/helper/category_date.dart';
+import 'package:flutter_news/helper/category_data.dart';
 import 'package:flutter_news/helper/widgets.dart';
 import 'package:flutter_news/model/category_model.dart';
 import 'package:flutter_news/screens/category_news.dart';
@@ -19,14 +19,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _loading = false;
-  var newslist;
+  var newsList;
 
   List<CategoryModel> categories = List<CategoryModel>();
 
   getNews() async {
     News news = News();
     await news.getNews();
-    newslist = news.news;
+    newsList = news.news;
 
     setState(() {
       _loading = false;
@@ -76,16 +76,16 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         margin: EdgeInsets.only(top: 16),
                         child: ListView.builder(
-                          itemCount: newslist.length,
+                          itemCount: newsList.length,
                           shrinkWrap: true,
                           physics: ClampingScrollPhysics(),
                           itemBuilder: (context, index) {
                             return NewsTile(
-                              imgUrl: newslist[index].urlToImage ?? "",
-                              title: newslist[index].title ?? "",
-                              desc: newslist[index].description ?? "",
-                              content: newslist[index].content ?? "",
-                              postUrl: newslist[index].articleUrl ?? "",
+                              imgUrl: newsList[index].urlToImage ?? "",
+                              title: newsList[index].title ?? "",
+                              desc: newsList[index].description ?? "",
+                              content: newsList[index].content ?? "",
+                              postUrl: newsList[index].articleUrl ?? "",
                             );
                           }),
                       )
@@ -108,6 +108,7 @@ class CategoryCard extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
           builder: (context) => CategoryNews(
+           newsCategory: categoryName.toLowerCase(),
           )
         ));
       },
