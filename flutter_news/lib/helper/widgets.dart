@@ -12,7 +12,7 @@ Widget appBar(){
         ),
         Text(
           "News",
-          style: TextStyle(color: Colors.purple, fontSize: 25.0, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.pink, fontSize: 25.0, fontWeight: FontWeight.w600),
         )
       ],
     ),
