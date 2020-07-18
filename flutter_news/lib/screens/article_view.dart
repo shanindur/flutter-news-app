@@ -27,18 +27,18 @@ class _ArticleViewState extends State<ArticleView> {
             ),
             Text(
               "News",
-              style: TextStyle(color: Colors.purple, fontSize: 25.0, fontWeight: FontWeight.w600),
+              style: TextStyle(color: Colors.pink, fontSize: 25.0, fontWeight: FontWeight.w600),
             )
           ],
         ),
         actions: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.share, color: Colors.purple,),
+            child: Icon(Icons.share, color: Colors.pink,),
           )
         ],
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.purple),
+          icon: Icon(Icons.arrow_back, color: Colors.pink),
           onPressed: (){
             Navigator.of(context).pop();
           },
